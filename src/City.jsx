@@ -17,8 +17,17 @@ function City() {
   const cameraTarget = useRef(null);
   const isAnimating = useRef(false);
 
+  /////// INITIAL CAMERA ///////
+  useThree(({camera}) => {
+    camera.position.x = 5;
+    camera.position.y = 4;
 
-  /////// USE FRAME///////
+    // !!! lookAt not working correctly
+    camera.lookAt(20, 10, 0);
+  });
+
+
+  /////// USE FRAME ///////
   useFrame(() => {
 
     /////// CAMERA TRANSITION ///////
